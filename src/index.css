@@ -1,0 +1,120 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --c-text: #f0f0f0;
+  --c-bg: #222;
+  --c-error: hsl(4.58deg 66.58% 47.97%);
+
+  font: 400 16px/1.5 sans-serif;
+  color: var(--c-text);
+  background: var(--c-bg);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  color-scheme: only dark;
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  font-size: 2rem;
+  line-height: 1.25;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+input {
+  display: block;
+  width: 100%;
+  padding: 1rem 0.75rem;
+  height: 3.5rem; /* e.g. date inputs can be higher*/
+
+  font: inherit;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5rem;
+
+  border: none;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+input:focus {
+  outline: 2px solid hotpink;
+}
+
+button {
+  padding: 1rem 2rem;
+  font: inherit;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.5rem;
+  color: inherit;
+  background: hotpink;
+  cursor: pointer;
+}
+
+button:not(:disabled):active {
+  background: #c93f84;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.error {
+  display: block;
+  width: fit-content;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+  font-style: italic;
+
+  border-radius: 0.25rem;
+  color: white;
+  background: var(--c-error);
+
+  animation: slide-in 0.25s;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+label:has(input) + .error {
+  margin-top: 0.5rem;
+}
+
+/* -------------------------- */
+
+#root {
+  max-width: 480px;
+  margin: 3rem auto;
+  padding: 1rem;
+}
+
+form > * + * {
+  margin-top: 1rem;
+}
+
+form > button {
+  margin-top: 1.5rem;
+}
